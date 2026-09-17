@@ -1,0 +1,20 @@
+Completed my Python Data Engineering internship projects at Barakah TechLabs.
+
+Projects:
+1. End-to-End ETL Pipeline — REST API → Pandas Transformation → PostgreSQL
+2. Automated Scheduling with Cron — Daily ETL execution at midnight
+
+Tech Stack:
+Python | Pandas | REST API | JSON | SQLAlchemy | PostgreSQL | Linux/WSL | Cron
+
+Key features:
+• API extraction with retry handling
+• Data cleaning and validation
+• PostgreSQL upsert loading
+• Error handling and logging
+• Automated daily scheduling
+
+GitHub: [PASTE YOUR GITHUB URL]
+Demo/Evidence: [PASTE YOUR LINKEDIN VIDEO/POST URL]
+
+#Python #DataEngineering #ETL #Pandas #PostgreSQL #SQL #RESTAPI #Cron #DataScience #BarakahTechLabs
