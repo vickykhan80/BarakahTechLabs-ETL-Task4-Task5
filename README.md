@@ -1,86 +1,72 @@
 # Barakah TechLabs — End-to-End ETL Pipeline
 
-## Completed Tasks
-- Task 4: End-to-End ETL Pipeline Script
-- Task 5: Automated Scheduling with Cron
+A complete End-to-End ETL Pipeline developed as part of the Barakah TechLabs internship.
 
-The pipeline extracts JSON data from a REST API, transforms it with Pandas, and loads it into PostgreSQL. It includes retry logic, validation, error handling, logging, and an idempotent PostgreSQL upsert.
+This project extracts data from a REST API, transforms and validates it using Pandas, loads it into PostgreSQL, and automatically runs the ETL process every day using Linux Cron.
 
-## 1. Prerequisites
-- Python 3.10+
+## 🚀 Project Overview
+
+The project combines:
+
+- Task 4 — End-to-End ETL Pipeline
+- Task 5 — Automated Scheduling with Cron
+
+Workflow:
+
+REST API → JSON Data → Pandas Transformation → PostgreSQL → Cron Automation
+
+## ✨ Features
+
+- REST API data extraction
+- API retry logic
+- Data cleaning and validation
+- Pandas transformation
+- Duplicate record handling
+- PostgreSQL data loading
+- Idempotent database upsert
+- Automatic table creation
+- Error handling
+- ETL logging
+- Execution time tracking
+- Manual ETL execution
+- Daily automated Cron scheduling
+
+## 🛠️ Technologies
+
+- Python
+- Requests
+- Pandas
+- SQLAlchemy
 - PostgreSQL
-- Linux/WSL for Cron
+- Psycopg2
+- Linux / WSL
+- Cron
+- Git & GitHub
 
-## 2. Setup
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-cp .env.example .env
-```
+## 📡 Data Source
 
-Edit `.env` and set your PostgreSQL password.
+The pipeline retrieves sample JSON data from JSONPlaceholder:
 
-Create the database:
-```sql
-CREATE DATABASE barakah_etl;
-```
+https://jsonplaceholder.typicode.com/posts
 
-## 3. Run manually
-```bash
-chmod +x run_etl.sh
-./run_etl.sh
-```
+The data is fetched automatically when the ETL pipeline runs.
 
-The first successful run creates `api_posts` automatically.
+## 📁 Project Structure
 
-## 4. Verify PostgreSQL
-```sql
-SELECT COUNT(*) FROM api_posts;
-SELECT * FROM api_posts ORDER BY id LIMIT 10;
-```
-
-## 5. Task 5 — Cron scheduling
-Edit `cron_etl.sh` and replace `/ABSOLUTE/PATH/TO/etl_pipeline` with the real project path.
-
-Then:
-```bash
-chmod +x cron_etl.sh
-crontab -e
-```
-
-Add:
-```cron
-0 0 * * * /ABSOLUTE/PATH/TO/etl_pipeline/cron_etl.sh
-```
-
-This runs every day at midnight.
-
-Check:
-```bash
-crontab -l
-tail -f cron.log
-```
-
-## 6. GitHub submission
-```bash
-git init
-git add .
-git commit -m "Complete ETL pipeline with daily Cron scheduling"
-git branch -M main
-git remote add origin YOUR_GITHUB_REPOSITORY_URL
-git push -u origin main
-```
-
-Do not upload `.env` because it contains credentials.
-
-## 7. LinkedIn evidence
-Record a short screen video showing:
-1. Project structure
-2. `./run_etl.sh`
-3. Successful ETL logs
-4. PostgreSQL table/query results
-5. `crontab -l`
-6. `cron.log`
-
-Then post the video/screenshots on LinkedIn and submit the post URL with the GitHub URL.
+```text
+etl_pipeline/
+│
+├── src/
+│   └── etl_pipeline.py
+│
+├── sql/
+│   ├── create_database.sql
+│   └── create_table.sql
+│
+├── .env.example
+├── .gitignore
+├── requirements.txt
+├── run_etl.sh
+├── cron_etl.sh
+├── README.md
+└── sample_linkedin_post.txt
